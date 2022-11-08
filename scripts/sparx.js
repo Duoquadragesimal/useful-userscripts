@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      0.1.0
+// @version      1.0.0
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Me
 // @match        https://*.sparxmaths.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=sparxmaths.com
-//
+// @updateURL    https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.js
+// @downloadURL  https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.js
 // ==/UserScript==
 (function() {
     'use strict';
