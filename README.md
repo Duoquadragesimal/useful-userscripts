@@ -1,0 +1,2 @@
+# useful-userscripts
+FOR BROWSERS
