@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.0.0.2
+// @version      1.0.0.3
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Me
 // @match        https://*.sparxmaths.uk/*
@@ -114,7 +114,7 @@
                 var counter = 0;
                 var correctIndex;
                 for (let i = 0; i < choices.length; i++) {
-                    if (!(choices[i].querySelector("img"))) {
+                    if (choices[i].querySelector("img") !== null) {
                         let answerBlocks = choices[i].querySelectorAll("span.answer-block")
                         var answerBlockValues = []
                         for (let g = 0; g < answerBlocks.length; g++) {
