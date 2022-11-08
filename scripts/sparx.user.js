@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.0.0.3
+// @version      1.0.0.5
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Me
 // @match        https://*.sparxmaths.uk/*
@@ -114,14 +114,16 @@
                 var counter = 0;
                 var correctIndex;
                 for (let i = 0; i < choices.length; i++) {
-                    if (choices[i].querySelector("img") !== null) {
+                    if (choices[i].querySelector("img") == null) {
                         let answerBlocks = choices[i].querySelectorAll("span.answer-block")
+                        console.log(answerBlocks)
                         var answerBlockValues = []
                         for (let g = 0; g < answerBlocks.length; g++) {
                             answerBlockValues.push(answerBlocks[g].textContent);
                         }
+                        console.log(answerBlockValues)
                         var success = correctChoiceText.every(function(val) {
-                            return answerBlockValues.indexOf(val) !== -1;
+                            return (answerBlockValues.indexOf(val) !== -1) || (answerBlockValues.indexOf(val+"{"+val+"}"+val) !== -1);
                         });
                         if (success) {
                             correctIndex = i
@@ -140,7 +142,6 @@
                 };
                 choices[correctIndex].style = "background-color: #00ff00 !important;"
             }
-            //});
         });
     };
 
