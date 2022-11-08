@@ -68,17 +68,7 @@
                             let selectedAnswers = answerFragment.querySelectorAll("div.selected");
                             for (let i = 0; i < selectedAnswers.length; i++) {
                                 let text = selectedAnswers[i].textContent;
-                                //console.log(text.search("{(.*)}"));
-                              //  if (text.search("{(.*)}") != -1) {
-                                //    if (text.search("[a-zA-Z]*") != -1) {
-                                        window.answerText.push(text);
-                                   // }
-                               //     else {
-                              //          window.answerText = text.match("{(.*)}")[0];
-                               //     }
-                               // } else {
-                               // window.answerText = text;
-                                //};
+                                window.answerText.push(text);
                             };
                         }
                         //CARDS ANSWER METHOD
@@ -86,17 +76,7 @@
                          let selectedAnswers = answerFragment.querySelectorAll("div.slot:not(.slot-locked)")
                             for (let i = 0; i < selectedAnswers.length; i++) {
                                 let text = selectedAnswers[i].textContent;
-                                //console.log(text.search("{(.*)}"));
-                                //if (text.search("{(.*)}") != -1) {
-                                   // if (text.search("[a-zA-Z]*") != -1) {
-                                        window.answerText.push(text);
-                                   // }
-                                    //else {
-                                    //    window.answerText = text.match("{(.*)}")[0];
-                                  //  }
-                               // } else {
-                                //window.answerText = text;
-                                //};
+                                window.answerText.push(text);
                             }
                         }
                         //SMALL CARDS WITH ENTRY AREA ANSWER METHOD (ANSWER PART)
@@ -105,18 +85,6 @@
                             for (let i = 0; i < selectedAnswers.length; i++) {
                                 let text = selectedAnswers[i].textContent;
                                 window.answerText.push(text);
-                                //console.log(answerFragment)
-                                //console.log(text.search("{(.*)}"));
-                                //if (text.search("{(.*)}") != -1) {
-                                    //if (text.search("[a-zA-Z]*") != -1) {
-                                     //   window.answerText = text;
-                                    //}
-                                    //else {
-                                    //    window.answerText = text.match("{(.*)}")[0];
-                                    //}
-                                //} else {
-                                //window.answerText = text;
-                                //};
                             }
                         }
                         //KEYPAD INPUT
@@ -124,18 +92,7 @@
                             let selectedAnswers = answerFragment.querySelectorAll("input.number-input")
                             for (let i = 0; i < selectedAnswers.length; i++) {
                                 let text = selectedAnswers[i].value;
-                                //console.log(text.search("{(.*)}"));
-                                //if (text.search("{(.*)}") != -1) {
-                                    //if (text.search("[a-zA-Z]*") != -1) {
-                                        window.answerText.push(text);
-                                    //}
-                                    //else {
-                                        //window.answerText = text.match("{(.*)}")[0];
-                                    //}
-                                //}
-                                //else {
-                                //window.answerText = text;
-                                //};
+                                window.answerText.push(text);
                             }
                         }
                         window.lastanswerHTML = answerFragment;
