@@ -6,8 +6,8 @@
 // @author       Me
 // @match        https://*.sparxmaths.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=sparxmaths.com
-// @updateURL    https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.js
-// @downloadURL  https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.js
+// @updateURL    https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.user.js
+// @downloadURL  https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.user.js
 // ==/UserScript==
 (function() {
     'use strict';
