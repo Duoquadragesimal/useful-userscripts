@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.0.0.5
+// @version      1.0.0.6
 // @description  sparx SUCKS ASS and BUTTOCKS
-// @author       Me
+// @author       Big Zak
 // @match        https://*.sparxmaths.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=sparxmaths.com
 // @updateURL    https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.user.js
@@ -31,13 +31,18 @@
                     window.thisHWDict = JSON.parse(window.localStorage.getItem(window.currentHomework));
                 }
                 else {
-                window.thisHWDict = {}
+                    window.thisHWDict = {}
                 }
             }
         }
     });
     function callback(mutationList, observer) {
         mutationList.forEach((mutation) => {
+            if (document.querySelector("span.location-title")!== null) {
+                if (document.querySelector("span.location-title").textContent == "Independent Learning") {
+                    window.currentHomework = "Independent Learning"
+                }
+            }
             //mutation.addedNodes.forEach((mutation) => {
             const bwcodeExists = document.querySelector(".bookwork-code span");
             if (bwcodeExists) {
@@ -97,8 +102,10 @@
                         }
                         window.lastanswerHTML = answerFragment;
                         const storage = window.localStorage;
-                        window.thisHWDict[window.lastBWCode] = window.answerText
-                        storage.setItem(window.currentHomework,JSON.stringify(window.thisHWDict))
+                        if (window.currentHomework !== "Independent Learning") {
+                            window.thisHWDict[window.lastBWCode] = window.answerText
+                            storage.setItem(window.currentHomework,JSON.stringify(window.thisHWDict))
+                        }
                     }
                 }
                 catch(err){}
@@ -141,6 +148,13 @@
                     }
                 };
                 choices[correctIndex].style = "background-color: #00ff00 !important;"
+            }
+            var homeworkPackages = document.querySelectorAll("div.package");
+            for (let i = 0; i < homeworkPackages.length; i++) {
+                let temp = homeworkPackages[i].querySelector(".package-title").textContent;
+                if (!(homeworkPackages[i].querySelector("span.complete") == null)) {
+                    window.localStorage.removeItem(temp)
+                }
             }
         });
     };
