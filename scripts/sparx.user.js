@@ -3,7 +3,7 @@
 // @namespace    https://github.com/Duoquadragesimal
 // @version      1.0.0.6
 // @description  sparx SUCKS ASS and BUTTOCKS
-// @author       Big Zak
+// @author       Big Z
 // @match        https://*.sparxmaths.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=sparxmaths.com
 // @updateURL    https://github.com/Duoquadragesimal/useful-userscripts/raw/main/scripts/sparx.user.js
@@ -49,7 +49,7 @@
                 var bwcode = bwcodeExists.textContent.slice(15);
                 if (!(bwcode == window.lastBWCode)) {
                     window.lastBWCode = bwcode;
-                    console.log(bwcode);
+                    //console.log(bwcode);
                 };
             };
             const answerWasCorrect = document.querySelector("h1.correct");
@@ -61,7 +61,7 @@
                     const range = document.createRange();
                     const answerFragment = range.createContextualFragment(answerHTML);
                     if (!(answerFragment.isEqualNode(window.lastanswerHTML))) {
-                        console.log(answerFragment);
+                        //console.log(answerFragment);
                         //CHOICES ANSWER METHOD
                         var pee = answerFragment.querySelectorAll("div.choice.choice-image.selected img")
                         if (pee.length != 0) {
@@ -114,26 +114,28 @@
             if (isBWCheck!==null && (isBWCheck != window.lastBWCheck)) {
                 window.lastBWCheck = isBWCheck
                 let checkCode = isBWCheck.querySelector("div.bookwork-code").textContent.slice(15);
-                console.log(checkCode);
+                //console.log(checkCode);
                 let correctChoiceText = window.thisHWDict[checkCode];
-                console.log(correctChoiceText)
+                //console.log(correctChoiceText)
                 var choices = isBWCheck.querySelectorAll("div.choice-wac-option");
                 var counter = 0;
                 var correctIndex;
+                var foundSolution = false
                 for (let i = 0; i < choices.length; i++) {
                     if (choices[i].querySelector("img") == null) {
                         let answerBlocks = choices[i].querySelectorAll("span.answer-block")
-                        console.log(answerBlocks)
+                        //console.log(answerBlocks)
                         var answerBlockValues = []
                         for (let g = 0; g < answerBlocks.length; g++) {
                             answerBlockValues.push(answerBlocks[g].textContent);
                         }
-                        console.log(answerBlockValues)
+                        //console.log(answerBlockValues)
                         var success = correctChoiceText.every(function(val) {
                             return (answerBlockValues.indexOf(val) !== -1) || (answerBlockValues.indexOf(val+"{"+val+"}"+val) !== -1);
                         });
                         if (success) {
                             correctIndex = i
+                            foundSolution = true
                         }
                     }
                     else {
@@ -144,10 +146,19 @@
                         }
                         if (answerImageURLs.includes(correctChoiceText)) {
                             correctIndex = i
+                            foundSolution = true
                         }
                     }
                 };
                 choices[correctIndex].style = "background-color: #00ff00 !important;"
+                if (foundSolution == false) {
+                    console.log("You're probably looking here because the bookwork check answer was not highlighted. That's what the error above is about")
+                    console.log("The script will now log some things - the code for this bookwork check screen, and the list of bookwork checks with answers.")
+                    console.log("For each of them, please right click, then click \"copy object\" (presuming you are on a Chrome-based browser).")
+                    console.log("Then send them to me so I can fix it, either on Discord or Github Issues (https://github.com/Duoquadragesimal/useful-userscripts/issues).")
+                    console.log(window.thisHWDict)
+                    console.log(window.lastBWCheck)
+                }
             }
             var homeworkPackages = document.querySelectorAll("div.package");
             for (let i = 0; i < homeworkPackages.length; i++) {
