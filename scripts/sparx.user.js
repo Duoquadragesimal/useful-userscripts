@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.0.0.6
+// @version      1.0.0.7
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Big Z
 // @match        https://*.sparxmaths.uk/*
@@ -17,6 +17,7 @@
         attributes: true,
         subtree: true
     };
+    alert("Warning! The sparx bookwork checker is currently not working properly! I am in the process of fixing it, but in the meantime it is advised you record bookwork checks manually!\n-Zak")
     window.lastBWCode = "It doesn't matter what this string is as long as it isn't a possible bookwork code.";
     window.lastBWCheck = document.createElement("null")
     window.lastanswerHTML = document.createElement("null")
