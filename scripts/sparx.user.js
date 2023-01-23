@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.0.0.8
+// @version      1.0.0.10
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Big Z
 // @match        https://*.sparxmaths.uk/*
@@ -113,7 +113,7 @@
                         }
                     }
                 }
-                catch(err){}
+                catch(err){alert(err)}
             };
             var isBWCheck = document.querySelector("div.wac-box")
             if (isBWCheck!==null && (isBWCheck != window.lastBWCheck)) {
@@ -155,16 +155,16 @@
                         }
                     }
                 };
-                choices[correctIndex].style = "background-color: #00ff00 !important;"
-                if (foundSolution == false) {
-                    console.log("You're probably looking here because the bookwork check answer was not highlighted. That's what the error above is about")
-                    console.log("The script will now log some things - the code for this bookwork check screen, and the list of bookwork checks with answers.")
-                    console.log("For each of them, please right click, then click \"copy object\" (presuming you are on a Chrome-based browser).")
-                    console.log("Then send them to me so I can fix it, either on Discord or Github Issues (https://github.com/Duoquadragesimal/useful-userscripts/issues).")
-                    console.log(window.thisHWDict)
-                    console.log(window.lastBWCheck)
-                }
-            }
+                try {choices[correctIndex].style = "background-color: #00ff00 !important;";}
+                catch {
+                    console.log("You're probably looking here because the bookwork check answer was not highlighted. It brocken BOZO. But still if you could send me the stuff logged that would be helpful");
+                    console.log("The script will now log some things - the code for this bookwork check screen, and the list of bookwork checks with answers.");
+                    console.log("For each of them, please right click, then click \"copy object\" (presuming you are on a Chrome-based browser).");
+                    console.log("Then send them to me so I can fix it, either on Discord or Github Issues (https://github.com/Duoquadragesimal/useful-userscripts/issues).");
+                    console.log(window.thisHWDict);
+                    console.log(window.lastBWCheck);
+                    };
+            };
             var homeworkPackages = document.querySelectorAll("div.package");
             for (let i = 0; i < homeworkPackages.length; i++) {
                 let temp = homeworkPackages[i].querySelector(".package-title").textContent;
