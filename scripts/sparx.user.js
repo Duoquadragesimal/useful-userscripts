@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.0.0.10
+// @version      1.0.0.11
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Big Z
 // @match        https://*.sparxmaths.uk/*
@@ -113,7 +113,7 @@
                         }
                     }
                 }
-                catch(err){alert(err)}
+                catch(err){console.log(err)}
             };
             var isBWCheck = document.querySelector("div.wac-box")
             if (isBWCheck!==null && (isBWCheck != window.lastBWCheck)) {
