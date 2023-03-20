@@ -182,7 +182,7 @@ function main() {
                         const storage = window.localStorage;
                         if (window.currentHomework !== "Independent Learning") {
                             if (window.answerText.every(function(val) {return !(val)})) {
-                                window.answerText = prompt("The program failed to identify an answer for that last question.\nPlease type the answer here if you can remember it.\n-Big Z")
+                                window.answerText.push(prompt("The program failed to identify an answer for that question.\nPlease type the answer here.\n-Big Z"));
                             }
                             console.log(window.answerText)
                             window.thisHWDict[window.lastBWCode] = window.answerText
