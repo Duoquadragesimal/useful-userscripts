@@ -38,6 +38,7 @@ function main() {
     catch {}
     window.lastBWCode = "It doesn't matter what this string is as long as it isn't a possible bookwork code.";
     window.lastBWCheck = document.createElement("null")
+    window.bwCheckCode = ""
     window.lastanswerHTML = document.createElement("null")
     window.currentHomework = ""
     document.querySelector('body').addEventListener('click', function(event) {
@@ -156,9 +157,15 @@ function main() {
                                 }
                             }
                             selectedAnswers = answerFragment.querySelectorAll("div.gap-slot")
+                           var text = null
                             for (let i = 0; i < selectedAnswers.length; i++) {
                                 if (selectedAnswers[i].closest(".answer-part-fraction") === null) {
-                                    let text = selectedAnswers[i].querySelector("span.katex-mathml annotation").textContent;
+                                    if (selectedAnswers[i].querySelector("span.katex-mathml annotation")) {
+                                        text = selectedAnswers[i].querySelector("span.katex-mathml annotation").textContent;
+                                    }
+                                    else {
+                                        text = selectedAnswers[i].textContent;
+                                    }
                                     window.answerText.push(text);
                                     console.log(window.answerText)
                                 }
@@ -174,7 +181,7 @@ function main() {
                         }
                         const storage = window.localStorage;
                         if (window.currentHomework !== "Independent Learning") {
-                            if (window.answerText === [] ) {
+                            if (window.answerText.every(function(val) {return !(val)})) {
                                 window.answerText = prompt("The program failed to identify an answer for that last question.\nPlease type the answer here if you can remember it.\n-Big Z")
                             }
                             console.log(window.answerText)
@@ -184,12 +191,15 @@ function main() {
                         }
                     }
                 }
-                catch(err) {console.log(err)}
+                catch {}
             };
-            var isBWCheck = document.querySelector("div.wac-box")
-            if (isBWCheck!==null && (isBWCheck != window.lastBWCheck)) {
+            var isBWCheck = document.querySelector("div.wac-box");
+            if (isBWCheck!==null) {
+                var checkCode = isBWCheck.querySelector("div.bookwork-code").textContent.slice(15);
+            }
+            if (isBWCheck!==null && (isBWCheck != window.lastBWCheck) && (window.bwCheckCode !== checkCode)) {
                 window.lastBWCheck = isBWCheck
-                let checkCode = isBWCheck.querySelector("div.bookwork-code").textContent.slice(15);
+                window.bwCheckCode = checkCode
                 console.log(checkCode);
                 console.log(window.thisHWDict);
                 console.log("HWDict above, Check code below");
@@ -220,8 +230,8 @@ function main() {
                     newChild.style.padding = "4px"
                     newChild.style.border = "3px solid #000000"
                     newChild.style.float = "right"
-                    window.katex.render(correctChoiceText[i], newChild)
-                    holderBox.appendChild(newChild)
+                    window.katex.render(correctChoiceText[i], newChild);
+                    holderBox.appendChild(newChild);
                 }
                 var choices = isBWCheck.querySelectorAll("div.wac-input div.choice-wac-option");
                 var counter = 0;
