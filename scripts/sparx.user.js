@@ -130,6 +130,19 @@ function main() {
                                   }
                                }
                             }
+                            let selectedAnswers = answerFragment.querySelectorAll("div.slot:not(.slot-locked)")
+                            let text = null
+                            for (let i = 0; i < selectedAnswers.length; i++) {
+                                if (selectedAnswers[i].closest(".answer-part-fraction") === null) {
+                                    if (selectedAnswers[i].querySelector("span.katex-mathml annotation")) {
+                                        text = selectedAnswers[i].querySelector("span.katex-mathml annotation").textContent;
+                                    }
+                                    else {
+                                        text = selectedAnswers[i].textContent;
+                                    }
+                                    window.answerText.push(text);
+                                }
+                            }
                         }
                         //SMALL CARDS WITH ENTRY AREA ANSWER METHOD (ANSWER PART)
                        if (answerFragment.querySelector("div.gap-slot")) {
@@ -157,7 +170,7 @@ function main() {
                                 }
                             }
                             selectedAnswers = answerFragment.querySelectorAll("div.gap-slot")
-                           var text = null
+                            let text = null
                             for (let i = 0; i < selectedAnswers.length; i++) {
                                 if (selectedAnswers[i].closest(".answer-part-fraction") === null) {
                                     if (selectedAnswers[i].querySelector("span.katex-mathml annotation")) {
