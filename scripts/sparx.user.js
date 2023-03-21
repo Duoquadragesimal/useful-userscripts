@@ -117,7 +117,7 @@ function main() {
                                        }
                                    }
                                    console.log("4")
-                                   let text = "\\frac{" + beforeVinculum + afterVinculum + "}"
+                                   let text = "{\\frac{" + beforeVinculum + afterVinculum + "}}"
                                    console.log(text)
                                    window.answerText.push(text);
                                    console.log(window.answerText)
@@ -149,7 +149,7 @@ function main() {
                                             beforeVinculum = selectedAnswers[i].querySelector("span.katex-mathml annotation").textContent
                                         }
                                     }
-                                    let text = "\\frac{" + beforeVinculum + afterVinculum + "}"
+                                    let text = "{\\frac" + beforeVinculum + afterVinculum + "}"
                                     //let text = String.raw("\frac{") + beforeVinculum + afterVinculum + "}" ;
                                     //console.log(text)
                                     window.answerText.push(text);
