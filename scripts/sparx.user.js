@@ -133,7 +133,7 @@ function main() {
                             let selectedAnswers = answerFragment.querySelectorAll("div.slot:not(.slot-locked)")
                             let text = null
                             for (let i = 0; i < selectedAnswers.length; i++) {
-                                if (selectedAnswers[i].closest(".answer-part-fraction") === null) {
+                                if (selectedAnswers[i].closest(".fraction") === null) {
                                     if (selectedAnswers[i].querySelector("span.katex-mathml annotation")) {
                                         text = selectedAnswers[i].querySelector("span.katex-mathml annotation").textContent;
                                     }
