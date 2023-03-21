@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Sparx thing
 // @namespace    https://github.com/Duoquadragesimal
-// @version      1.1.0.0
+// @version      1.1.4.0
 // @description  sparx SUCKS ASS and BUTTOCKS
 // @author       Big Z
 // @match        https://*.sparxmaths.uk/*
