@@ -1,4 +1,7 @@
 # useful-userscripts
+
+## WARNING - This is archived as I no longer use Sparx and so cannot maintain it. The code contained in this repo may no longer work, or may stop working at any point. Use at your own discretion.
+
 #### FOR BROWSERS
 To install a userscript, you first need to download  the user script manager [Tampermonkey](https://www.tampermonkey.net/) (or [Userscript](https://apps.apple.com/gb/app/userscripts/id1463298887) for Safari - Note: Turns out this does work! Just make sure to copy the script in and save). 
 If using Tampermonkey, open the raw link to the script (found below) and Tampermonkey should detect that it is a userscript. Then just click install.
